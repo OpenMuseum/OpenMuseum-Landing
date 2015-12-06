@@ -1,0 +1,165 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            margin: 0;
+            background: #000;
+        }
+
+    video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -100;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%);
+        background: url('image/logo.jpg') no-repeat;
+        background-size: cover;
+        -webkit-transition: 1s opacity;
+        transition: 1s opacity;
+    }
+
+    #polina {
+        font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+        font-weight: 100;
+        background: rgba(0, 0, 0, 0.3);
+        color: white;
+        padding: 1rem;
+        width: 25%;
+        font-size: 1.2rem;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 30px;
+        display: none;
+    }
+
+        .stopfade {
+            opacity: .5;
+        }
+
+    h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        margin-top: 0;
+        letter-spacing: .3rem;
+    }
+
+    #polina button {
+        display: block;
+        width: 80%;
+        padding: .4rem;
+        border: none;
+        margin: 1rem auto;
+        font-size: 1.3rem;
+        background: rgba(255, 255, 255, 0.23);
+        color: #fff;
+        border-radius: 3px;
+        cursor: pointer;
+        -webkit-transition: .3s background;
+        transition: .3s background;
+    }
+
+    #polina button:hover {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    a {
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(0, 0, 0, 0.5);
+        padding: .5rem;
+        -webkit-transition: .6s background;
+        transition: .6s background;
+    }
+
+    a:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    @media screen and (max-width: 500px) {
+        div {
+            width: 70%;
+        }
+    }
+
+    @media screen and (max-device-width: 800px) {
+        html {
+            background: url('image/logo.jpg') #000 no-repeat center center fixed;
+        }
+
+        #bgvid {
+            display: none;
+        }
+    }
+    </style>
+</head>
+<body>
+<video autoplay="" poster="image/logo.jpg" id="bgvid">
+    <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+    <source src="video/logo.mp4" type="video/mp4">
+</video>
+<div id="polina">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        #mc_embed_signup {
+            clear: left;
+            font: 14px Helvetica, Arial, sans-serif;
+        }
+    </style>
+    <div id="mc_embed_signup">
+        <form action="//oldsaratov.us10.list-manage.com/subscribe/post?u=49a6a3f1d330ca5bd92f5dd2b&amp;id=657809dbd8"
+              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+              class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+                <div class="">
+                    <p>Подписка на рассылку</p>
+                </div>
+                <div class="mc-field-group form-group">
+                    <input type="email" value=""  placeholder="Адрес электронной почты" name="EMAIL" class="required email form-control" id="mce-EMAIL">
+                </div>
+                <div id="mce-responses" class="clear">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;">
+                    <input type="text" name="b_49a6a3f1d330ca5bd92f5dd2b_657809dbd8" tabindex="-1" value="" placeholder="Адрес электронной почты">
+                </div>
+                <div class="clear">
+                    <input type="submit" value="Узнать первым" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-primary">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script type='text/javascript'>(function ($) {
+        window.fnames = new Array();
+        window.ftypes = new Array();
+        fnames[0] = 'EMAIL';
+        ftypes[0] = 'email';
+    }(jQuery));
+    var $mcj = jQuery.noConflict(true);</script>
+    <!--End mc_embed_signup-->
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    var vid = document.getElementById('bgvid');
+    function vidFade() {
+        vid.classList.add('stopfade');
+    }
+    vid.addEventListener('ended', function () {
+        vidFade();
+        $("#polina").fadeIn();
+    });
+</script>
+</body>
+</html>
